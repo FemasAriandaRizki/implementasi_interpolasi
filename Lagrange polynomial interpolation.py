@@ -39,4 +39,3 @@ x = 3.5
 interpolated_value, i, n = lagrange_interpolation(points, x)
 print(f"P{i}({x}) = {interpolated_value:.5f}")
 print(f"Jadi nilai interpolasi pada x = {x} yaitu {interpolated_value:.5f}")
-
