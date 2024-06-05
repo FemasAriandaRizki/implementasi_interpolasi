@@ -1,5 +1,11 @@
+# Nama    : Femas Arianda Rizki
+# NIM     : 21120122130080
+# Kelas   : Metode Numerik - B
+
+# Kode Sumber
 import matplotlib.pyplot as plt
 import numpy as np
+
 def lagrange_interpolation(points, x):
     """
     Menghitung nilai interpolasi Lagrange pada titik x.
@@ -28,14 +34,23 @@ def lagrange_interpolation(points, x):
                 # mendapatkan nilai x dari titik j ke dalam variabel xj
                 xj, _ = points[j]
                 term *= (x - xj) / (xi - xj)
-        print(f"a{i}L{i} = {term:.5f}")
         total += term
     
-    return total, i, n
+    return total
 
-# Contoh penggunaan fungsi lagrange_interpolation
-points = [(1, 1.5709), (4, 1.5727), (6, 1.5751)]
-x = 3.5
-interpolated_value, i, n = lagrange_interpolation(points, x)
-print(f"P{i}({x}) = {interpolated_value:.5f}")
+# Kode Testing, contoh penyelesaian problem
+points = [(5, 10), (10, 30), (15, 25), (20, 40), (25, 18), (30, 20), (35, 22), (40, 15)]
+x = 33
+interpolated_value = lagrange_interpolation(points, x)
+print(f"P({x}) = {interpolated_value:.5f}")
 print(f"Jadi nilai interpolasi pada x = {x} yaitu {interpolated_value:.5f}")
+
+#  Plot Grafik hasil interpolasi dengan 5 <= x <= 40
+x_values = np.arange(5, 40.1, 0.1)
+y_values = [lagrange_interpolation(points, x) for x in x_values]
+
+plt.plot(x_values, y_values, "r")
+plt.grid()
+plt.xlim(0, 42)
+
+plt.show()
