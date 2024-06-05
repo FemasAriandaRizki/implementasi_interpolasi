@@ -52,5 +52,8 @@ y_values = [lagrange_interpolation(points, x) for x in x_values]
 plt.plot(x_values, y_values, "r")
 plt.grid()
 plt.xlim(0, 42)
+plt.xlabel('x')
+plt.ylabel('Interpolated y')
+plt.title('Interpolasi Polinomial Lagrange')
 
 plt.show()
